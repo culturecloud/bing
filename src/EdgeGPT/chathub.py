@@ -41,6 +41,7 @@ class ChatHub:
         self.task: asyncio.Task
         self.request = ChatHubRequest(
             conversation_signature=conversation.struct["conversationSignature"],
+            encrypted_conversation_signature=conversation.struct["encryptedConversationSignature"],
             client_id=conversation.struct["clientId"],
             conversation_id=conversation.struct["conversationId"],
         )
@@ -61,23 +62,23 @@ class ChatHub:
             timeout=900,
             headers=HEADERS_INIT_CONVER,
         )
-        if conversation.struct.get("encryptedConversationSignature"):
-            self.encrypted_conversation_signature = conversation.struct["encryptedConversationSignature"]
-        else:
-            self.encrypted_conversation_signature = None
 
     async def get_conversation(
         self,
         conversation_id: str = None,
         conversation_signature: str = None,
+        encrypted_conversation_signature: str = None,
         client_id: str = None,
     ) -> dict:
         conversation_id = conversation_id or self.request.conversation_id
         conversation_signature = (
             conversation_signature or self.request.conversation_signature
         )
+        encrypted_conversation_signature = (
+                encrypted_conversation_signature or self.request.encrypted_conversation_signature
+        )
         client_id = client_id or self.request.client_id
-        url = f"https://sydney.bing.com/sydney/GetConversation?conversationId={conversation_id}&source=cib&participantId={client_id}&conversationSignature={conversation_signature}&traceId={get_ran_hex()}"
+        url = f"https://sydney.bing.com/sydney/GetConversation?conversationId={conversation_id}&source=cib&participantId={client_id}&conversationSignature={conversation_signature}&encryptedConversationSignature={encrypted_conversation_signature}&traceId={get_ran_hex()}"
         response = await self.session.get(url)
         return response.json()
 
@@ -103,9 +104,9 @@ class ChatHub:
         locale: str = guess_locale(),
     ) -> Generator[bool, Union[dict, str], None]:
         """ """
-        if self.encrypted_conversation_signature is not None:
+        if self.request.encrypted_conversation_signature is not None:
             wss_link = wss_link or "wss://sydney.bing.com/sydney/ChatHub"
-            wss_link += f"?sec_access_token={urllib.parse.quote(self.encrypted_conversation_signature)}"
+            wss_link += f"?sec_access_token={urllib.parse.quote(self.request.encrypted_conversation_signature)}"
         cookies = {}
         if self.cookies is not None:
             for cookie in self.cookies:
@@ -256,11 +257,15 @@ class ChatHub:
         self,
         conversation_id: str = None,
         conversation_signature: str = None,
+        encrypted_conversation_signature: str = None,
         client_id: str = None,
     ) -> None:
         conversation_id = conversation_id or self.request.conversation_id
         conversation_signature = (
             conversation_signature or self.request.conversation_signature
+        )
+        encrypted_conversation_signature = (
+                encrypted_conversation_signature or self.request.encrypted_conversation_signature
         )
         client_id = client_id or self.request.client_id
         url = "https://sydney.bing.com/sydney/DeleteSingleConversation"
@@ -269,6 +274,7 @@ class ChatHub:
             json={
                 "conversationId": conversation_id,
                 "conversationSignature": conversation_signature,
+                "encryptedConversationSignature": encrypted_conversation_signature,
                 "participant": {"id": client_id},
                 "source": "cib",
                 "optionsSets": ["autosave"],
