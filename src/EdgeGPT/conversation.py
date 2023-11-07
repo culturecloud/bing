@@ -22,6 +22,7 @@ class Conversation:
             "conversationId": None,
             "clientId": None,
             "conversationSignature": None,
+            "encryptedConversationSignature": None,
             "result": {"value": "Success", "message": None},
         }
         self.proxy = proxy
