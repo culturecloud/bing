@@ -78,7 +78,7 @@ class ChatHub:
                 encrypted_conversation_signature or self.request.encrypted_conversation_signature
         )
         client_id = client_id or self.request.client_id
-        url = f"https://sydney.bing.com/sydney/GetConversation?conversationId={conversation_id}&source=cib&participantId={client_id}&conversationSignature={conversation_signature}&encryptedConversationSignature={encrypted_conversation_signature}&traceId={get_ran_hex()}"
+        url = f"https://sydney.bing.com/sydney/GetConversation?conversationId={conversation_id}&source=sapphire-prod&participantId={client_id}&conversationSignature={conversation_signature}&encryptedConversationSignature={encrypted_conversation_signature}&traceId={get_ran_hex()}"
         response = await self.session.get(url)
         return response.json()
 
@@ -276,7 +276,7 @@ class ChatHub:
                 "conversationSignature": conversation_signature,
                 "encryptedConversationSignature": encrypted_conversation_signature,
                 "participant": {"id": client_id},
-                "source": "cib",
+                "source": "sapphire-prod",
                 "optionsSets": ["autosave"],
             },
         )

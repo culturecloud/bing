@@ -66,7 +66,7 @@ class ChatHubRequest:
         self.struct = {
             "arguments": [
                 {
-                    "source": "cib",
+                    "source": "sapphire-prod",
                     "optionsSets": options,
                     "allowedMessageTypes": [
                         "ActionRequest",
