@@ -128,20 +128,25 @@ class Chatbot:
                 if not simplify_response:
                     return response
                 messages_left = response["item"]["throttling"][
-                    "maxNumUserMessagesInConversation"
-                ] - response["item"]["throttling"].get(
+                                    "maxNumUserMessagesInConversation"
+                                ] - response["item"]["throttling"].get(
                     "numUserMessagesInConversation",
                     0,
                 )
                 if messages_left == 0:
                     raise Exception("Max messages reached")
-                message = ""
+
+                message: dict | None = None
+                response_text = ""
                 for msg in reversed(response["item"]["messages"]):
-                    if msg.get("adaptiveCards") and msg["adaptiveCards"][0]["body"][
-                        0
-                    ].get("text"):
-                        message = msg
-                        break
+                    if msg.get("adaptiveCards"):
+                        body = msg["adaptiveCards"][0]["body"]
+                        for block in body:
+                            if block.get("type") == "TextBlock":  # the first block could be type: Image
+                                response_text = block.get("text")
+                                if response_text:
+                                    message = msg
+                                    break
                 if not message:
                     raise Exception("No message found")
                 suggestions = [
@@ -150,10 +155,10 @@ class Chatbot:
                 ]
                 adaptive_cards = message.get("adaptiveCards", [])
                 adaptive_text = (
-                    adaptive_cards[0]["body"][0].get("text") if adaptive_cards else None
+                    response_text if adaptive_cards else None
                 )
                 sources = (
-                    adaptive_cards[0]["body"][0].get("text") if adaptive_cards else None
+                    response_text if adaptive_cards else None
                 )
                 sources_text = (
                     adaptive_cards[0]["body"][-1].get("text")
