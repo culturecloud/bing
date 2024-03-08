@@ -36,6 +36,7 @@ setup(
         "prompt_toolkit",
         "requests",
         "BingImageCreator>=0.4.4",
+        "log2d>=0.0.18"
     ],
     long_description=Path.open(PATH, encoding="utf-8").read(),
     long_description_content_type="text/markdown",
