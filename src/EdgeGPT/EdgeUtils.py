@@ -114,6 +114,7 @@ class Query:
         echo_prompt: bool = False,
         locale: str = "en-GB",
         simplify_response: bool = True,
+        proxy: str or None = None
     ) -> None:
         """
         Arguments:
@@ -126,6 +127,7 @@ class Query:
         echo_prompt: Print confirmation of the evaluated prompt
         simplify_response: True -> single simplified prompt/response exchange
         cookie_files: iterable of Paths or strings of cookie files (json)
+        proxy (str or None): proxy if needed in http://ip:port or http://username:password@ip:port format
 
         Files in Cookie.dir_path will also be used if they exist.  This defaults
         to the current working directory, so set Cookie.dir_path before
@@ -136,6 +138,7 @@ class Query:
         self.locale = locale
         self.simplify_response = simplify_response
         self.ignore_cookies = ignore_cookies
+        self.proxy = proxy
         if not ignore_cookies:
             if cookie_files:
                 # Convert singular argument to an iterable:
@@ -182,9 +185,9 @@ class Query:
         retries = len(Cookie.files()) or 1
         while retries:
             if not hasattr(Cookie, "current_data"):
-                bot = await Chatbot.create()
+                bot = await Chatbot.create(proxy=self.proxy)
             else:
-                bot = await Chatbot.create(cookies=Cookie.current_data)
+                bot = await Chatbot.create(cookies=Cookie.current_data, proxy=self.proxy)
             if echo_prompt:
                 log(f"{self.prompt=}")
             if echo:
