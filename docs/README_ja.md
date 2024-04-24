@@ -1,9 +1,11 @@
 <div align="center">
-  <img src="https://socialify.git.ci/acheong08/EdgeGPT/image?font=Inter&language=1&logo=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F9%2F9c%2FBing_Fluent_Logo.svg&owner=1&pattern=Floating%20Cogs&theme=Auto" alt="EdgeGPT" width="640" height="320" />
+  <img src="https://socialify.git.ci/jacobgelling/EdgeGPT/image?font=Inter&language=1&logo=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F9%2F9c%2FBing_Fluent_Logo.svg&owner=1&pattern=Floating%20Cogs&theme=Auto" alt="EdgeGPT" width="640" height="320" />
 
 # Edge GPT
 
-_Bing の新バージョンのチャット機能のリバースエンジニアリング_
+_Bing (Sydney/Bing Chat/Microsoft Copilot)の新バージョンのチャット機能のリバースエンジニアリング_
+
+これは、[acheong08/EdgeGPTI(https://github.com/acheong08/EdgeGPT) における元のプロジェクトの固定フォークです
 
 <a href="./README.md">English</a> -
 <a href="./README_zh-cn.md">简体中文</a> -
@@ -251,12 +253,12 @@ if __name__ == "__main__":
 
 ## Star ヒストリー
 
-[![Star History Chart](https://api.star-history.com/svg?repos=acheong08/EdgeGPT&type=Date)](https://star-history.com/#acheong08/EdgeGPT&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=acheong08/jacobgelling&type=Date)](https://star-history.com/#acheong08/jacobgelling&Date)
 
 ## コントリビューター
 
 このプロジェクトが存在するのはコントリビュートしてくださるすべての方々のおかげです。
 
- <a href="https://github.com/acheong08/EdgeGPT/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=acheong08/EdgeGPT" />
+ <a href="https://github.com/jacobgelling/EdgeGPT/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jacobgelling/EdgeGPT" />
  </a>

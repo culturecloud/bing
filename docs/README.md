@@ -1,11 +1,11 @@
-> # This project has been archived. Due to personal circumstances, I lack the time to maintain this repository.
-
 <div align="center">
-  <img src="https://socialify.git.ci/acheong08/EdgeGPT/image?font=Inter&language=1&logo=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F9%2F9c%2FBing_Fluent_Logo.svg&owner=1&pattern=Floating%20Cogs&theme=Auto" alt="EdgeGPT" width="640" height="320" />
+  <img src="https://socialify.git.ci/jacobgelling/EdgeGPT/image?font=Inter&language=1&logo=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F9%2F9c%2FBing_Fluent_Logo.svg&owner=1&pattern=Floating%20Cogs&theme=Auto" alt="EdgeGPT" width="640" height="320" />
 
 # Edge GPT
 
-_The reverse engineering the chat feature of the new version of Bing_
+_The reverse engineering of the chat feature of the new version of Bing (Sydney/Bing Chat/Microsoft Copilot)_
+
+This is a fixed fork of the original project at [acheong08/EdgeGPT](https://github.com/acheong08/EdgeGPT)
 
 <a>English</a> -
 <a href="./README_zh-cn.md">简体中文</a> -
@@ -371,7 +371,7 @@ if __name__ == "__main__":
 
 </summary>
 
-[![Star History Chart](https://api.star-history.com/svg?repos=acheong08/EdgeGPT&type=Date)](https://star-history.com/#acheong08/EdgeGPT&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=jacobgelling/EdgeGPT&type=Date)](https://star-history.com/#jacobgelling/EdgeGPT&Date)
 
 </details>
 
@@ -385,8 +385,8 @@ if __name__ == "__main__":
 
 This project exists thanks to all the people who contribute.
 
- <a href="https://github.com/acheong08/EdgeGPT/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=acheong08/EdgeGPT" />
+ <a href="https://github.com/jacobgelling/EdgeGPT/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jacobgelling/EdgeGPT" />
  </a>
 
 </details>
