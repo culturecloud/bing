@@ -32,7 +32,7 @@ _Bing (Sydney/Bing Chat/Microsoft Copilot)の新バージョンのチャット�
 ### パッケージをインストール
 
 ```bash
-python3 -m pip install EdgeGPT --upgrade
+python3 -m pip install https://github.com/jacobgelling/EdgeGPT/archive/refs/tags/0.14.1.zip --upgrade
 ```
 
 ### 要件

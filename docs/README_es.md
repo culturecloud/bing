@@ -35,7 +35,7 @@ Esta es una bifurcación corregida del proyecto original en [acheong08/EdgeGPT](
 ## Instalación
 
 ```bash
-python3 -m pip install EdgeGPT --upgrade
+python3 -m pip install https://github.com/jacobgelling/EdgeGPT/archive/refs/tags/0.14.1.zip --upgrade
 ```
 
 ## Requisitos

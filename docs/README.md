@@ -35,7 +35,7 @@ This is a fixed fork of the original project at [acheong08/EdgeGPT](https://gith
 ## Install package
 
 ```bash
-python3 -m pip install EdgeGPT --upgrade
+python3 -m pip install https://github.com/jacobgelling/EdgeGPT/archive/refs/tags/0.14.1.zip --upgrade
 ```
 
 ## Requirements

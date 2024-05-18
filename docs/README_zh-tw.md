@@ -35,7 +35,7 @@ _新必應(Sydney/Bing Chat/Microsoft Copilot)聊天功能的逆向工程_
 ## 安裝模組
 
 ```bash
-python3 -m pip install EdgeGPT --upgrade
+python3 -m pip install https://github.com/jacobgelling/EdgeGPT/archive/refs/tags/0.14.1.zip --upgrade
 ```
 
 ## 要求
