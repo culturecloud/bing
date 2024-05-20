@@ -16,11 +16,14 @@ setup(
     license="The Unlicense",
     author="Antonio Cheong",
     author_email="acheong@student.dalat.org",
-    description="Reverse engineered Edge Chat API",
+    description="Reverse engineered API of Microsoft Copilot AI",
     packages=find_packages("src"),
     package_dir={"": "src"},
-    url="https://github.com/acheong08/EdgeGPT",
-    project_urls={"Bug Report": "https://github.com/acheong08/EdgeGPT/issues/new"},
+    url="https://github.com/jacobgelling/EdgeGPT",
+    project_urls={
+        "Bug Report": "https://github.com/jacobgelling/EdgeGPT/issues/new",
+        "Source": "https://github.com/jacobgelling/EdgeGPT",
+    },
     entry_points={
         "console_scripts": [
             "edge-gpt = EdgeGPT.main:main",
